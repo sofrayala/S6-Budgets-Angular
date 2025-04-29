@@ -1,0 +1,47 @@
+section {
+  display: flex;
+  margin: 8rem;
+  padding: 5rem 5rem;
+  background-color: rgb(245, 243, 243);
+  border-radius: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 2px rgba(153, 153, 153, 0.397);
+}
+
+#info-div {
+  gap: 0.5;
+}
+
+h1 {
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+p {
+  font-size: large;
+}
+
+#div-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h2 {
+  font-size: xx-large;
+  font-weight: 800;
+}
+h3 {
+  font-size: large;
+  font-weight: 800;
+}
+
+#div-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1 rem;
+}
+#div-checkbox label {
+  margin: 0.5rem;
+}
