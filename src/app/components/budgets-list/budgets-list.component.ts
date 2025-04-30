@@ -11,17 +11,17 @@ export class BudgetsListComponent {
   budgetList: BudgetList[] = [
     {
       title: 'SEO',
-      description: 'Programació de una web responsive completa',
+      description: 'Program a complete responsive web',
       price: 300,
     },
     {
       title: 'Advertising',
-      description: 'Programació de una web responsive completa',
+      description: 'Program a complete responsive web',
       price: 400,
     },
     {
       title: 'Website Development',
-      description: 'Programació de una web responsive completa',
+      description: 'Program a complete responsive web',
       price: 500,
     },
   ];
