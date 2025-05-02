@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+}
+
 #budgetListBody {
   align-items: center;
   justify-items: center;
@@ -5,14 +9,14 @@
 
 section {
   display: flex;
-  margin: 4rem 0rem;
-  padding: 5rem 5rem;
+  margin: 3rem 0rem;
+  padding: 4rem 4rem;
   background-color: rgb(253, 253, 253);
   border-radius: 2rem;
   justify-content: space-between;
   align-items: center;
   box-shadow: 3px 2px 2px 2px rgba(153, 153, 153, 0.397);
-  width: 60%;
+  width: 55%;
 }
 
 #info-div {
@@ -50,4 +54,26 @@ h3 {
 }
 #div-checkbox label {
   margin: 0.5rem;
+}
+
+#total-budget-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5rem;
+  width: 55%;
+  margin: 0 auto;
+}
+
+#total-budget-number,
+#total-budget-text {
+  font-size: xx-large;
+  font-weight: 800;
+}
+
+#dolar-div {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
 }
