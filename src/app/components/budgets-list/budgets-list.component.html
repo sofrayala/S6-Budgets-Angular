@@ -19,16 +19,15 @@
 
         <label> Add</label>
       </div>
+
+      @if( item.controlName === "website" && budgetForm.get('website')?.value){
+      <app-panel></app-panel>
+      }
     </section>
     } @empty {
     <p>There are no services.</p>
     }
   </div>
-
-  @if(budgetForm.get('website')?.value){
-  <app-panel></app-panel>
-
-  }
 
   <div id="total-budget-div">
     <h2 id="total-budget-text">Total budget:</h2>
