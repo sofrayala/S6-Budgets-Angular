@@ -1,15 +1,9 @@
 import { Component } from '@angular/core';
 import { BudgetList } from '../../interface/budget-list.interface';
-import {
-  ReactiveFormsModule,
-  FormControl,
-  FormBuilder,
-  FormGroup,
-} from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-budgets-list',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './budgets-list.component.html',
   styleUrl: './budgets-list.component.scss',
 })
@@ -17,7 +11,7 @@ export class BudgetsListComponent {
   budgetForm: FormGroup;
   totalBudget: number = 0;
 
-  budgetList = [
+  budgetList: BudgetList[] = [
     {
       title: 'SEO',
       description: 'Program a complete responsive web',
@@ -51,8 +45,10 @@ export class BudgetsListComponent {
   }
 
   calculateTotalBudget(values: any): void {
-    this.totalBudget = this.budgetList.reduce((total, service) => {
-      return total + (values[service.controlName] ? service.price : 0);
+    this.totalBudget = this.budgetList.reduce((total, budgetListItem) => {
+      return (
+        total + (values[budgetListItem.controlName] ? budgetListItem.price : 0)
+      );
     }, 0);
   }
 }
