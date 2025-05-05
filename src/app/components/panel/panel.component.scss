@@ -1,0 +1,36 @@
+section {
+  display: flex;
+  flex-direction: column;
+  justify-self: end;
+  margin-top: 2rem;
+  row-gap: 0.5rem;
+}
+
+#num-page-div,
+#num-lang-div {
+  display: flex;
+  justify-content: right;
+}
+
+p {
+  margin-right: 1.5rem;
+}
+
+input {
+  width: 2rem;
+  height: auto;
+  margin: 0rem 1rem 0rem 1rem;
+  border-radius: 20%;
+  border-color: grey;
+  padding: 0.2rem;
+}
+
+button {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 100%;
+  border-color: grey;
+  color: grey;
+  background-color: white;
+  font-weight: bolder;
+}

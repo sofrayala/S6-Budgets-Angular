@@ -2,26 +2,29 @@
   <div id="budgetListBody">
     @for(item of budgetList; track item.title){
     <section>
-      <div id="info-div">
-        <h1>{{ item.title }}</h1>
-        <p>{{ item.description }}</p>
-      </div>
-      <div id="div-price">
-        <h2>{{ item.price }}</h2>
-        <h3>$</h3>
-      </div>
+      <div id="top-row">
+        <div id="info-div">
+          <h1>{{ item.title }}</h1>
+          <p>{{ item.description }}</p>
+        </div>
+        <div id="div-price">
+          <h2>{{ item.price }}</h2>
+          <h3>$</h3>
+        </div>
 
-      <div
-        id="checkbox-div
-    "
-      >
-        <input type="checkbox" [formControlName]="item.controlName" />
+        <div
+          id="checkbox-div
+        "
+        >
+          <input type="checkbox" [formControlName]="item.controlName" />
 
-        <label> Add</label>
+          <label> Add</label>
+        </div>
       </div>
-
       @if( item.controlName === "website" && budgetForm.get('website')?.value){
-      <app-panel></app-panel>
+      <div id="panel-div">
+        <app-panel></app-panel>
+      </div>
       }
     </section>
     } @empty {
