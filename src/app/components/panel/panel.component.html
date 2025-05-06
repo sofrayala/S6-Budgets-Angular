@@ -1,14 +1,100 @@
 <form [formGroup]="panelForm">
   <div id="num-page-div">
+    <i
+      class="bi bi-info-circle"
+      style="cursor: pointer"
+      data-bs-toggle="modal"
+      data-bs-target="#infoModal"
+      (click)="openModalForPages()"
+    ></i>
     <p>Number of pages</p>
-    <button (click)="substractPages()">-</button>
+
+    <i
+      class="bi bi-dash-circle"
+      style="cursor: pointer"
+      id="panel-button"
+      (click)="substractPages()"
+    ></i>
+
     <input type="number" id="pages" formControlName="pages" />
-    <button (click)="addPages()">+</button>
+
+    <i
+      class="bi bi-plus-circle"
+      style="cursor: pointer"
+      id="panel-button"
+      (click)="addPages()"
+    ></i>
   </div>
   <div id="num-lang-div">
+    <i
+      class="bi bi-info-circle"
+      style="cursor: pointer"
+      data-bs-toggle="modal"
+      data-bs-target="#infoModal"
+      (click)="openModalForLanguages()"
+    ></i>
     <p>Number of languages</p>
-    <button (click)="substractLanguages()">-</button>
+
+    <i
+      class="bi bi-dash-circle"
+      style="cursor: pointer"
+      id="panel-button"
+      (click)="substractLanguages()"
+    ></i>
     <input type="number" id="languages" formControlName="languages" />
-    <button (click)="addLanguages()">+</button>
+    <i
+      class="bi bi-plus-circle"
+      style="cursor: pointer"
+      id="panel-button"
+      (click)="addLanguages()"
+    ></i>
   </div>
 </form>
+
+<!-- modals -->
+<div
+  class="modal fade"
+  id="infoModal"
+  tabindex="-1"
+  aria-labelledby="infoModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoModalLabel">
+          {{
+            isPageModal
+              ? "Number of pages information"
+              : "Number of Languages Information"
+          }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        @if(isPageModal){
+        <p>
+          In case you need more than one web page, you should mark as many web
+          pages as you need.
+        </p>
+        }@else {
+        <p>
+          When building web page, you might want ot use variouos web programmng
+          languages. This sections allows you to choose how many languages dyou
+          would like to implement in your page.
+        </p>
+        }
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

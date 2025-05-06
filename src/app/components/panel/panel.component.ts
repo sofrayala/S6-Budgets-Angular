@@ -15,6 +15,7 @@ import { BudgetService } from '../../services/budget.service';
 export class PanelComponent {
   @Output() websitePricePersonalized = new EventEmitter<number>();
   panelForm: FormGroup;
+  isPageModal: boolean = true;
 
   constructor(private fb: FormBuilder, private budgetService: BudgetService) {
     this.panelForm = this.fb.group({
@@ -53,5 +54,13 @@ export class PanelComponent {
     if (currentLanguages > 1) {
       this.panelForm.get('languages')?.setValue(currentLanguages - 1);
     }
+  }
+
+  openModalForPages(): void {
+    this.isPageModal = true;
+  }
+
+  openModalForLanguages(): void {
+    this.isPageModal = false;
   }
 }
