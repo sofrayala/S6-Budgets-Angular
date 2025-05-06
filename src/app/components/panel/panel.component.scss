@@ -17,20 +17,23 @@ p {
 }
 
 input {
-  width: 2rem;
+  width: 3rem;
   height: auto;
   margin: 0rem 1rem 0rem 1rem;
   border-radius: 20%;
-  border-color: grey;
+  border-color: rgba(128, 128, 128, 0.473);
   padding: 0.2rem;
+  justify-content: center;
+  font-weight: 800;
 }
 
 button {
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 100%;
-  border-color: grey;
+  border-color: rgba(128, 128, 128, 0.473);
   color: grey;
   background-color: white;
   font-weight: bolder;
+  font-size: medium;
 }
