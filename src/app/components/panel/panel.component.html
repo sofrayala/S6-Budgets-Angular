@@ -15,7 +15,7 @@
 <h2>
   Debugger for panel form price:
   {{
-    calculateWebsitePrice(
+    budgetService.calculateWebsitePrice(
       panelForm.get("pages")?.value || 1,
       panelForm.get("languages")?.value || 1
     )

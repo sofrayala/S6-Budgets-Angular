@@ -5,6 +5,7 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { BudgetService } from '../../services/budget.service';
 @Component({
   selector: 'app-panel',
   imports: [ReactiveFormsModule],
@@ -15,20 +16,19 @@ export class PanelComponent {
   @Output() websitePricePersonalized = new EventEmitter<number>();
   panelForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, public budgetService: BudgetService) {
     this.panelForm = this.fb.group({
       pages: [1, [Validators.required, Validators.min(1)]],
       languages: [1, [Validators.required, Validators.min(1)]],
     });
 
     this.panelForm.valueChanges.subscribe((values) => {
-      const price = this.calculateWebsitePrice(values.pages, values.languages);
+      const price = this.budgetService.calculateWebsitePrice(
+        values.pages,
+        values.languages
+      );
       this.websitePricePersonalized.emit(price);
     });
-  }
-
-  calculateWebsitePrice(pages: number, languages: number): number {
-    return pages * languages * 30;
   }
 
   addPages(): void {
