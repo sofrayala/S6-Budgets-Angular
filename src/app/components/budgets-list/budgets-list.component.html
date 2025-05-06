@@ -23,7 +23,9 @@
       </div>
       @if( item.controlName === "website" && budgetForm.get('website')?.value){
       <div id="panel-div">
-        <app-panel></app-panel>
+        <app-panel
+          (websitePricePersonalized)="updateWebsitePrice($event)"
+        ></app-panel>
       </div>
       }
     </section>

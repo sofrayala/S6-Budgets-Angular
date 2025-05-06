@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+
 import { BudgetList } from '../../interface/budget-list.interface';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { PanelComponent } from '../panel/panel.component';
+import { BudgetService } from '../../services/budget.service';
+
 @Component({
   selector: 'app-budgets-list',
   imports: [ReactiveFormsModule, PanelComponent],
@@ -11,6 +14,7 @@ import { PanelComponent } from '../panel/panel.component';
 export class BudgetsListComponent {
   budgetForm: FormGroup;
   totalBudget: number = 0;
+  websitePrice: number = 0;
 
   budgetList: BudgetList[] = [
     {
@@ -33,7 +37,7 @@ export class BudgetsListComponent {
     },
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private budgetService: BudgetService) {
     this.budgetForm = this.fb.group({
       seo: false,
       advertising: false,
@@ -46,10 +50,20 @@ export class BudgetsListComponent {
   }
 
   calculateTotalBudget(values: any): void {
-    this.totalBudget = this.budgetList.reduce((total, budgetListItem) => {
+    const subTotal = this.budgetList.reduce((total, budgetListItem) => {
       return (
         total + (values[budgetListItem.controlName] ? budgetListItem.price : 0)
       );
     }, 0);
+
+    this.totalBudget = this.budgetService.calculateTotalBudget(
+      subTotal,
+      this.websitePrice
+    );
+  }
+
+  updateWebsitePrice(price: number): void {
+    this.websitePrice = price;
+    this.calculateTotalBudget(this.budgetForm.value);
   }
 }
