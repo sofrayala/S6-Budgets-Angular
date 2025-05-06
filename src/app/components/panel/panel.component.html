@@ -12,12 +12,3 @@
     <button (click)="addLanguages()">+</button>
   </div>
 </form>
-<h2>
-  Debugger for panel form price:
-  {{
-    budgetService.calculateWebsitePrice(
-      panelForm.get("pages")?.value || 1,
-      panelForm.get("languages")?.value || 1
-    )
-  }}
-</h2>
