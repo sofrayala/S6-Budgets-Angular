@@ -45,11 +45,11 @@ export class BudgetsListComponent {
     });
 
     this.budgetForm.valueChanges.subscribe((values) => {
-      this.calculateTotalBudget(values);
+      this.recalculateTotalBudget(values);
     });
   }
 
-  calculateTotalBudget(values: any): void {
+  recalculateTotalBudget(values: any): void {
     const subTotal = this.budgetList.reduce((total, budgetListItem) => {
       return (
         total + (values[budgetListItem.controlName] ? budgetListItem.price : 0)
@@ -64,6 +64,6 @@ export class BudgetsListComponent {
 
   updateWebsitePrice(price: number): void {
     this.websitePrice = price;
-    this.calculateTotalBudget(this.budgetForm.value);
+    this.recalculateTotalBudget(this.budgetForm.value);
   }
 }
