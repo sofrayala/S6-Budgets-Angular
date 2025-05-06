@@ -16,7 +16,7 @@ export class PanelComponent {
   @Output() websitePricePersonalized = new EventEmitter<number>();
   panelForm: FormGroup;
 
-  constructor(private fb: FormBuilder, public budgetService: BudgetService) {
+  constructor(private fb: FormBuilder, private budgetService: BudgetService) {
     this.panelForm = this.fb.group({
       pages: [1, [Validators.required, Validators.min(1)]],
       languages: [1, [Validators.required, Validators.min(1)]],
