@@ -4,10 +4,11 @@ import { BudgetList } from '../../interface/budget-list.interface';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { PanelComponent } from '../panel/panel.component';
 import { BudgetService } from '../../services/budget.service';
+import { QuotesComponent } from '../quotes/quotes.component';
 
 @Component({
   selector: 'app-budgets-list',
-  imports: [ReactiveFormsModule, PanelComponent],
+  imports: [ReactiveFormsModule, PanelComponent, QuotesComponent],
   templateUrl: './budgets-list.component.html',
   styleUrl: './budgets-list.component.scss',
 })
