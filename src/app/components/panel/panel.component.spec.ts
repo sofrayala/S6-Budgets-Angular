@@ -27,7 +27,7 @@ describe('PanelComponent', () => {
     expect(updatedPages).toBe(2);
   });
 
-  it('should handle undefined pages withour breaking the page', () => {
+  it('should handle undefined pages without breaking the page', () => {
     component.panelForm.get('pages')?.setValue(undefined);
     component.addPages();
     const updatedPages = component.panelForm.get('pages')?.value;
