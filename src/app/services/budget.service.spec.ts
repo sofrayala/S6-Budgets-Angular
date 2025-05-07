@@ -23,4 +23,14 @@ describe('BudgetService', () => {
 
     expect(result).toBe(expectedPrice);
   });
+
+  it('should calculate the total budget correctly', () => {
+    const subTotal = 1000;
+    const websitePrice = 350;
+    const expectedTotal = subTotal + websitePrice;
+
+    const result = service.calculateTotalBudget(subTotal, websitePrice);
+
+    expect(result).toBe(expectedTotal);
+  });
 });
