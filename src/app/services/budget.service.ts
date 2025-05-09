@@ -11,6 +11,4 @@ export class BudgetService {
   calculateTotalBudget(subTotal: number, websitePrice: number): number {
     return subTotal + websitePrice;
   }
-
-  constructor() {}
 }
