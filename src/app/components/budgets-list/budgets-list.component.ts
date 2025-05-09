@@ -15,7 +15,6 @@ export class BudgetsListComponent {
   budgetForm: FormGroup;
   totalBudget: number = 0;
   websitePrice: number = 0;
-  selectedServices: string[] = [];
 
   budgetList: BudgetList[] = [
     {
