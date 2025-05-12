@@ -5,6 +5,9 @@ import { Injectable, signal } from '@angular/core';
 })
 export class BudgetService {
   private quotes = signal<any[]>([]);
+  private selectedServices = signal<string[]>([]);
+  private totalBudget = signal<number>(0);
+
   calculateWebsitePrice(pages: number, languages: number): number {
     return pages * languages * 30;
   }
@@ -19,6 +22,21 @@ export class BudgetService {
 
   addQuote(quote: any) {
     this.quotes.update((currentQuotes) => [...currentQuotes, quote]);
-    console.log('Quotes array', this.quotes());
+  }
+
+  setSelectedServices(services: string[]) {
+    this.selectedServices.set(services);
+  }
+
+  getSelectedServices() {
+    return this.selectedServices();
+  }
+
+  setTotalBudget(budget: number) {
+    this.totalBudget.set(budget);
+  }
+
+  getTotalBudget() {
+    return this.totalBudget();
   }
 }

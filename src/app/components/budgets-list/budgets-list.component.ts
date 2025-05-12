@@ -46,6 +46,7 @@ export class BudgetsListComponent {
 
     this.budgetForm.valueChanges.subscribe((values) => {
       this.recalculateTotalBudget(values);
+      this.updateSelectedServices(values);
     });
   }
 
@@ -60,10 +61,18 @@ export class BudgetsListComponent {
       subTotal,
       this.websitePrice
     );
+    this.budgetService.setTotalBudget(this.totalBudget);
   }
 
   updateWebsitePrice(price: number): void {
     this.websitePrice = price;
     this.recalculateTotalBudget(this.budgetForm.value);
+  }
+
+  updateSelectedServices(values: any): void {
+    const selected: string[] = this.budgetList
+      .filter((item) => values[item.controlName])
+      .map((item) => item.title);
+    this.budgetService.setSelectedServices(selected);
   }
 }
