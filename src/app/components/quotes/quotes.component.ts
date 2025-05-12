@@ -13,4 +13,21 @@ import { BudgetService } from '../../services/budget.service';
   templateUrl: './quotes.component.html',
   styleUrl: './quotes.component.scss',
 })
-export class QuotesComponent {}
+export class QuotesComponent {
+  quotesForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private budgetService: BudgetService) {
+    this.quotesForm = this.fb.group({
+      name: [''],
+      phone: [''],
+      email: [''],
+    });
+  }
+
+  onSubmit() {
+    if (this.quotesForm.valid) {
+      this.budgetService.addQuote(this.quotesForm.value);
+      this.quotesForm.reset();
+    }
+  }
+}
