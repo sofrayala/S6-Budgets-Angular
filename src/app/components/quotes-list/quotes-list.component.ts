@@ -31,4 +31,13 @@ export class QuotesListComponent {
     );
     this.budgetService.updateQuotes(this.sortedQuotes);
   }
+
+  sortByDate() {
+    this.sortedQuotes = [...this.quotesSignal()].sort((a: any, b: any) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return dateA - dateB;
+    });
+    this.budgetService.updateQuotes(this.sortedQuotes);
+  }
 }

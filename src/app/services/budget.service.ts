@@ -22,7 +22,11 @@ export class BudgetService {
   }
 
   addQuote(quote: any) {
-    this.quotes.update((currentQuotes) => [...currentQuotes, quote]);
+    const quoteWithDate = {
+      ...quote,
+      date: new Date().toISOString(),
+    };
+    this.quotes.update((currentQuotes) => [...currentQuotes, quoteWithDate]);
     this.showQuotes.set(true);
   }
 
