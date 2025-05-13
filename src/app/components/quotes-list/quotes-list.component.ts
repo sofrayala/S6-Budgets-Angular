@@ -11,15 +11,24 @@ import { BudgetService } from '../../services/budget.service';
 export class QuotesListComponent {
   quotesSignal: Signal<any[]>;
   showQuotes: Signal<boolean>;
+  sortedQuotes: any[] = [];
 
   constructor(private budgetService: BudgetService) {
     this.quotesSignal = this.budgetService.getQuotes();
     this.showQuotes = this.budgetService.getShowQuotes();
+    this.sortedQuotes = [...this.quotesSignal()];
   }
-  sortByPrice() {
-    const sortedQuotes = [...this.quotesSignal()].sort(
+  sortByPrice(): void {
+    this.sortedQuotes = [...this.quotesSignal()].sort(
       (a: any, b: any) => b.totalBudget - a.totalBudget
     );
-    this.budgetService.updateQuotes(sortedQuotes);
+    this.budgetService.updateQuotes(this.sortedQuotes);
+  }
+
+  sortAlphabetically(): void {
+    this.sortedQuotes = [...this.quotesSignal()].sort((a: any, b: any) =>
+      a.name.localeCompare(b.name)
+    );
+    this.budgetService.updateQuotes(this.sortedQuotes);
   }
 }
