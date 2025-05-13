@@ -45,4 +45,9 @@ export class BudgetService {
   getTotalBudget() {
     return this.totalBudget();
   }
+
+  updateQuotes(sortedQuotes: any[]): void {
+    this.quotes.set(sortedQuotes);
+    console.log('holaaa', sortedQuotes);
+  }
 }

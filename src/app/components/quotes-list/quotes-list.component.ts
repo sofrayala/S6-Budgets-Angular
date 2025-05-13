@@ -16,4 +16,10 @@ export class QuotesListComponent {
     this.quotesSignal = this.budgetService.getQuotes();
     this.showQuotes = this.budgetService.getShowQuotes();
   }
+  sortByPrice() {
+    const sortedQuotes = [...this.quotesSignal()].sort(
+      (a: any, b: any) => b.totalBudget - a.totalBudget
+    );
+    this.budgetService.updateQuotes(sortedQuotes);
+  }
 }
