@@ -7,6 +7,7 @@ export class BudgetService {
   private quotes = signal<any[]>([]);
   private selectedServices = signal<string[]>([]);
   private totalBudget = signal<number>(0);
+  private showQuotes = signal(false);
 
   calculateWebsitePrice(pages: number, languages: number): number {
     return pages * languages * 30;
@@ -22,6 +23,11 @@ export class BudgetService {
 
   addQuote(quote: any) {
     this.quotes.update((currentQuotes) => [...currentQuotes, quote]);
+    this.showQuotes.set(true);
+  }
+
+  getShowQuotes() {
+    return this.showQuotes.asReadonly();
   }
 
   setSelectedServices(services: string[]) {

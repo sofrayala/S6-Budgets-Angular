@@ -1,1 +1,30 @@
-<p>quotes-list works!</p>
+@if (showQuotes()) {
+<h2>Active quotes:</h2>
+
+@if (quotesSignal().length > 0) {
+<div id="quotes-list-body">
+  @for (quote of quotesSignal(); track quote.name) {
+  <section>
+    <div id="info-div">
+      <p id="name">{{ quote.name }}</p>
+      <p>{{ quote.email }}</p>
+      <p>{{ quote.phone }}</p>
+    </div>
+
+    <div id="services-div">
+      Quoted Services: <br />
+      {{ quote.services.join(", ") }}
+    </div>
+
+    <div>
+      <p>Total:</p>
+      <p id="totalBudget">{{ quote.totalBudget }} $</p>
+    </div>
+  </section>
+  } @empty {
+  <p>There are no quotes</p>
+  }
+</div>
+} @else {
+<p>There are no quotes</p>
+} }

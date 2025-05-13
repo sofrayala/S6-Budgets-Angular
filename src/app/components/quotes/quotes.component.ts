@@ -44,11 +44,11 @@ export class QuotesComponent {
     }
   }
 
-  updateSelectedServices(services: string[]) {
-    this.selectedServices = services;
-  }
+  // updateSelectedServices(services: string[]) {
+  //   this.selectedServices = services;
+  // }
 
-  updateTotalBudget(budget: number) {
-    this.totalBudget = budget;
-  }
+  // updateTotalBudget(budget: number) {
+  //   this.totalBudget = budget;
+  // }
 }
