@@ -1,14 +1,20 @@
 @if (showQuotes()) {
 <h2>Active quotes:</h2>
 <div id="buttons-div">
+  <!-- <input
+    id="search-bar"
+    type="search"
+    placeholder="Search by name"
+    (input)="filterByName($event)"
+  /> -->
   <p id="button" (click)="sortByDate()">Date</p>
   <p id="button" (click)="sortByPrice()">Price</p>
   <p id="button" (click)="sortAlphabetically()">A-Z</p>
 </div>
 
-@if (quotesSignal().length > 0) {
+@if (sortedQuotes().length > 0) {
 <div id="quotes-list-body">
-  @for (quote of quotesSignal(); track quote.name) {
+  @for (quote of sortedQuotes(); track quote.name) {
   <section>
     <div id="info-div">
       <p id="name">{{ quote.name }}</p>

@@ -51,7 +51,7 @@ export class BudgetService {
   }
 
   updateQuotes(sortedQuotes: any[]): void {
+    console.log('updated quotes', sortedQuotes);
     this.quotes.set(sortedQuotes);
-    console.log('holaaa', sortedQuotes);
   }
 }
