@@ -5,6 +5,7 @@ import { Injectable, signal } from '@angular/core';
 })
 export class BudgetService {
   private quotes = signal<any[]>([]);
+  private filteredQuotes = signal<any[]>([]);
   private selectedServices = signal<string[]>([]);
   private totalBudget = signal<number>(0);
   private showQuotes = signal(false);
@@ -20,6 +21,9 @@ export class BudgetService {
   getQuotes() {
     return this.quotes.asReadonly();
   }
+  getfilteredQuotes() {
+    return this.filteredQuotes.asReadonly();
+  }
 
   addQuote(quote: any) {
     const quoteWithDate = {
@@ -27,6 +31,10 @@ export class BudgetService {
       date: new Date().toISOString(),
     };
     this.quotes.update((currentQuotes) => [...currentQuotes, quoteWithDate]);
+    this.filteredQuotes.update((currentQuotes) => [
+      ...currentQuotes,
+      quoteWithDate,
+    ]);
     this.showQuotes.set(true);
   }
 
@@ -50,8 +58,10 @@ export class BudgetService {
     return this.totalBudget();
   }
 
-  updateQuotes(sortedQuotes: any[]): void {
-    console.log('updated quotes', sortedQuotes);
-    this.quotes.set(sortedQuotes);
+  // updateQuotes(sortedQuotes: any[]): void {
+  //   this.quotes.set(sortedQuotes);
+  // }
+  updateFilteredQuotes(filteredQuotes: any[]): void {
+    this.filteredQuotes.set(filteredQuotes);
   }
 }
