@@ -22,3 +22,13 @@ button {
 button:hover {
   background-color: rgb(164, 238, 146);
 }
+
+@media (max-width: 1200px) {
+  div {
+    padding: 2rem;
+  }
+
+  button {
+    font-size: large;
+  }
+}
