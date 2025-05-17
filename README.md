@@ -1,6 +1,7 @@
 # S6Budgets
 
-This is project is web aplciation to get budgets. The app allows users to choose specific services, get a quote for the toal cost and save quotes with their/ or their clients names.
+This is project is web aplication to get personalized budgets. The app allows users to choose specific services, get a quote for the total cost and save quotes with their clients names.
+The quotes list can be filtered alpahabetically, by date and by price. There is also a search bar for faster results.
 
 ## Technologies
 
