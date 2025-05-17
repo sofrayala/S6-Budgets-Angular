@@ -18,3 +18,23 @@ input {
   border-color: grey;
   height: 40px;
 }
+
+@media (max-width: 1500px) {
+  section {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 450px) {
+    button {
+      margin-top: 0.5rem;
+      padding: 0.2rem;
+    }
+
+    #quotes-body {
+      width: 85%;
+      margin: 0.8rem auto;
+      padding: 2rem 1rem;
+    }
+  }
+}

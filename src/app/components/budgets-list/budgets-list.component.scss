@@ -85,3 +85,31 @@ h3 {
   justify-content: center;
   gap: 0.5rem;
 }
+
+@media (max-width: 1500px) {
+  section {
+    flex-direction: column;
+    width: 80%;
+    padding: 2rem;
+  }
+  #top-row {
+    flex-direction: column;
+  }
+}
+@media (max-width: 450px) {
+  body {
+    margin: 1rem;
+    overflow-x: hidden;
+    width: 100vw;
+  }
+  #budgetListBody {
+    margin: 0rem;
+    flex-direction: row;
+    width: 100vw;
+  }
+
+  #total.budget-div {
+    width: 80%;
+    margin: 1rem;
+  }
+}

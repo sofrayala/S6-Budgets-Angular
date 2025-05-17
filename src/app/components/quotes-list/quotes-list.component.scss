@@ -59,3 +59,20 @@ input {
   border-color: grey;
   height: 40px;
 }
+
+@media (max-width: 450px) {
+  #buttons-div {
+    margin: 1em auto 0rem;
+    width: 85%;
+  }
+  p {
+    margin-bottom: 0rem;
+  }
+
+  section {
+    width: 85%;
+    flex-direction: column;
+    padding: 0.2rem;
+    gap: 0rem;
+  }
+}

@@ -10,13 +10,13 @@ import { BudgetService } from '../../services/budget.service';
 })
 export class QuotesListComponent {
   quotesSignal: Signal<any[]>;
-  showQuotes: Signal<boolean>;
   filteredQuotes: Signal<any[]>;
+  showQuotes: Signal<boolean>;
 
   constructor(private budgetService: BudgetService) {
     this.quotesSignal = this.budgetService.getQuotes();
-    this.showQuotes = this.budgetService.getShowQuotes();
     this.filteredQuotes = this.budgetService.getfilteredQuotes();
+    this.showQuotes = this.budgetService.getShowQuotes();
   }
 
   sortByPrice(): void {

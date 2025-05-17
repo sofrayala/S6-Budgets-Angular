@@ -58,10 +58,7 @@ export class BudgetService {
     return this.totalBudget();
   }
 
-  // updateQuotes(sortedQuotes: any[]): void {
-  //   this.quotes.set(sortedQuotes);
-  // }
-  updateFilteredQuotes(filteredQuotes: any[]): void {
-    this.filteredQuotes.set(filteredQuotes);
+  updateFilteredQuotes(quotes: any[]): void {
+    this.filteredQuotes.set(quotes);
   }
 }

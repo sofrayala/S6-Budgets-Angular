@@ -9,3 +9,10 @@
   font-size: large;
   width: 80%;
 }
+
+@media (max-width: 450px) {
+  #banner-div {
+    padding: 1.2rem 0.8rem;
+    border-radius: 0.8rem;
+  }
+}
