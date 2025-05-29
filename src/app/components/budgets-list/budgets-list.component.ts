@@ -57,10 +57,12 @@ export class BudgetsListComponent {
       );
     }, 0);
 
-    this.totalBudget = this.budgetService.calculateTotalBudget(
-      subTotal,
-      this.websitePrice
-    );
+    const websiteChecked = values['website'];
+    const total = websiteChecked
+      ? this.budgetService.calculateTotalBudget(subTotal, this.websitePrice)
+      : this.budgetService.calculateTotalBudget(subTotal, 0);
+
+    this.totalBudget = total;
     this.budgetService.setTotalBudget(this.totalBudget);
   }
 

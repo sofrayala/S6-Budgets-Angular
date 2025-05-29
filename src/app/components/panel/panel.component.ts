@@ -19,8 +19,8 @@ export class PanelComponent {
 
   constructor(private fb: FormBuilder, private budgetService: BudgetService) {
     this.panelForm = this.fb.group({
-      pages: [1, [Validators.required, Validators.min(1)]],
-      languages: [1, [Validators.required, Validators.min(1)]],
+      pages: [0, [Validators.required, Validators.min(0)]],
+      languages: [0, [Validators.required, Validators.min(0)]],
     });
 
     this.panelForm.valueChanges.subscribe((values) => {
@@ -33,25 +33,25 @@ export class PanelComponent {
   }
 
   addPages(): void {
-    const currentPages = this.panelForm.get('pages')?.value || 1;
+    const currentPages = this.panelForm.get('pages')?.value || 0;
     this.panelForm.get('pages')?.setValue(currentPages + 1);
   }
 
   substractPages(): void {
-    const currentPages = this.panelForm.get('pages')?.value || 1;
-    if (currentPages > 1) {
+    const currentPages = this.panelForm.get('pages')?.value || 0;
+    if (currentPages > 0) {
       this.panelForm.get('pages')?.setValue(currentPages - 1);
     }
   }
 
   addLanguages(): void {
-    const currentLanguages = this.panelForm.get('languages')?.value || 1;
+    const currentLanguages = this.panelForm.get('languages')?.value || 0;
     this.panelForm.get('languages')?.setValue(currentLanguages + 1);
   }
 
   substractLanguages(): void {
-    const currentLanguages = this.panelForm.get('languages')?.value || 1;
-    if (currentLanguages > 1) {
+    const currentLanguages = this.panelForm.get('languages')?.value || 0;
+    if (currentLanguages > 0) {
       this.panelForm.get('languages')?.setValue(currentLanguages - 1);
     }
   }
